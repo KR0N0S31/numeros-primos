@@ -10,23 +10,23 @@ class Numero(object):
 
     def add_iter(self):
         self.iter += 1
+    
+    def is_prime(self):
+        for i in range(1, self.num):
+            if self.num%i == 0:
+                self.iter +=1
+            if self.iter > 2:
+                return False
+        return True
 
 def num_pri(ni, nf):
     iteracion_total = 0
     primos = []
-    for i in range(nf, ni, -1):
+    for i in range(ni, nf):
         print("Analizando el numero: {}".format(i))
         numero = Numero(i)
-        for j in range(1, i):
-            pri = i/j
-            iteracion_total += 1
-            if pri == int(pri):
-                numero.add_iter()
-                if numero.iter >= 2:
-                    break
-        if numero.iter == 1:
+        if numero.is_prime():
             primos.append(i)
-    primos.reverse()
     return primos
 
 def add_list(lst, con, cursor):

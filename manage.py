@@ -20,7 +20,7 @@ if __name__ == '__main__':
         else:
             break
     if nf > last_prime[1]:
-        primos_sin_añadir = primos.num_pri(last_prime[1], nf)
+        primos_sin_añadir = primos.num_pri(last_prime[1]+1, nf)
         primos.add_list(primos_sin_añadir, con, cursor)
     query = read.extract(ni, nf, con, cursor)
     total = len(read.all(con, cursor))
